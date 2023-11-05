@@ -3,21 +3,19 @@
   <!-- partial:index.partial.html -->
   <div class="flex-container">
     <div class="flex-slide Write">
-      <div class="flex-title flex-title-home">Write</div>
+      <div class="flex-title flex-title-home">Writ2e</div>
       <div class="flex-about flex-about-home">
         <h2>Leave a Note...</h2>
 
         <form>
           <textarea placeholder="write..." v-model="neww">
               </textarea>
-              {{ newnote }}
-              {{ previewdata }}
           <span id="comment" @click="sss()">Comment</span>
         </form>
       </div>
     </div>
     <div class="flex-slide about">
-      <div class="flex-title">Preview</div>
+      <div class="flex-title">Previewx</div>
       <div class="flex-about">
         <h2>Preview notes</h2>
         <form>
@@ -52,7 +50,7 @@ export default {
   methods: {
     sss() {
       this.newnote = this.neww
-      this.previewdata.push(newnote)
+      console.log(this.newnote);
     }
   }
 
