@@ -9,7 +9,7 @@
 
         <form>
           <textarea placeholder="write..." v-model="neww">
-                  </textarea>
+                        </textarea>
           <span id="comment" @click="sss()">Comment</span>
         </form>
       </div>
@@ -18,30 +18,28 @@
       <div class="flex-title">Preview</div>
       <div class="flex-about">
         <h2>Preview notes</h2>
-        <form>
-          <textarea placeholder="write..." id="previewnotes" v-model="previewdata" readonly>
-            				</textarea>
+        <form v-for="item in previewdata">
+          <textarea id="previewnotes" v-model="item.body" readonly>
+                  	</textarea>
           <span id="Delete">Delete</span>
           <span id="Edit">Edit</span>
         </form>
-        <form>
-          <textarea :key="index" placeholder="write..." id="previewnotes" readonly>
-            				</textarea>
-          <span id="Delete">Deletxce;</span>
-          <span id="Edit">Edit</span>
-        </form>dl;ll;l
+
       </div>
     </div>
   </div>
 </template>
 
 <script >
-import axios from 'axios';
+import axios from 'axios'
+
 export default {
-  
+
   data() {
     return {
       previewdata: [
+        // { text: 'this is text 1' },
+        // { text: 'this is text 2' }
       ],
       neww: '',
 
@@ -49,28 +47,45 @@ export default {
 
 
   },
-  
-  methods: {
-    
-    sss(text) {
-      let newnote = {
-        done: true,
-        text: this.neww
-      }
-      console.log(newnote);
-      axios.post('https://crub-744dc-default-rtdb.firebaseio.com/new', {name : 'hamid'})
-        .then(res => {
-          console.log(res)
-          this.previewdata.push({
-            ...newnote
-          })
-
-        }
-        ).catch(err => {
-          console.log(err);
-        }
+  created() {
+        axios.get("https://crub-744dc-default-rtdb.firebaseio.com/news").then(({ data }) => {
+          console.log(data);
+        //     const dataa = Object.entries(data).map(([title, body]) => {
+        //         return {
+        //             title,
+        //             ...body
+        //         };
+        //     })
+        //     this.previewdata = dataa
+         }
         )
+        .catch("check your connection")
+    },
+  methods: {
+
+    sss() {
+      axios.post("https://crub-744dc-default-rtdb.firebaseio.com/news.json", { name: 'ali' }).then(res => { console.log(res) }
+      );
+
+
+
+      // let newnote = {
+      //   done: true,
+      //   text: this.neww
+      // }
+      // axios.post("https://crub-744dc-default-rtdb.firebaseio.com/news.json", this.newnote)
+      //   .then(res => {
+      // console.log(res)
+      // this.previewdata.push({
+      //   ...newnote
     }
+
+
+    //   ).catch(err => {
+    //     console.log(err);
+    //   }
+    //   )
+    // }
   }
 }
 
