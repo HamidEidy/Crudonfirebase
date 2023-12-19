@@ -1,4 +1,6 @@
 # Nuxt 3 Minimal Starter
+implementing Pagination in Nuxt.js
+![pagi](https://github.com/HamidEidy/Nuxt-Pagination/assets/148962898/1bf43d2e-d7ca-4969-87af-bdbb33d4d98b)
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
